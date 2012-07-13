@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.0.0//EN" "http://www.liferay.com/dtd/liferay-display_6_0_0.dtd">
+
+<display>
+	<category name="El Colombiano">
+		<portlet id="demoportlet"></portlet>
+		<portlet id="demoextendedportlet"></portlet>
+		<portlet id="vaadinportlet"></portlet>
+	</category>
+</display>
