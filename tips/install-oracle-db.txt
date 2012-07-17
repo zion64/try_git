@@ -1,0 +1,69 @@
+http://muzso.hu/2012/02/29/how-to-install-oracle-database-express-edition-11g-release-2-11.2-on-debian-squeeze-x86_6
+https://forums.oracle.com/forums/thread.jspa?threadID=2227554
+
+Upgrading Oracle Application Express within Oracle Database 10g Express Edition (XE)
+http://www.oracle.com/technetwork/developer-tools/apex/upgrade-apex-for-xe-154969.html
+http://mikesmithers.wordpress.com/2011/12/20/upgrading-to-apex-4-1-on-xe-11g/
+
+
+apt-get install alien libaio1 unixodbc
+
+cat > /etc/sysctl.d/60-oracle.conf <<EOF
+fs.file-max=6815744
+net.ipv4.ip_local_port_range=9000 65500
+kernel.sem=250 32000 100 1024
+kernel.shmmax=268435456
+EOF
+
+service procps start
+
+mkdir /usr/lib/oracle-xe
+ln -s /usr/lib/oracle-xe /u01
+
+(Suponiendo que oracle-xe-11.2.0-1.0.x86_64.rpm esta en /tmp) 
+cd /tmp
+alien --to-deb --scripts oracle-xe-11.2.0-1.0.x86_64.rpm
+
+ln -s /usr/bin/awk /bin/awk
+mkdir /var/lock/subsys
+
+cat > /sbin/chkconfig <<EOF
+#!/bin/bash
+# Oracle 11gR2 XE installer chkconfig hack for Debian based Linux (by dude)
+# Only run once.
+echo "Simulating /sbin/chkconfig..."
+if [[ ! \`tail -n1 /etc/init.d/oracle-xe | grep INIT\` ]]; then
+cat >> /etc/init.d/oracle-xe <<-EOM
+#
+### BEGIN INIT INFO
+# Provides:                  OracleXE
+# Required-Start:        \\\$remote_fs \\\$syslog
+# Required-Stop:        \\\$remote_fs \\\$syslog
+# Default-Start:            2 3 4 5
+# Default-Stop:            0 1 6
+# Short-Description:   Oracle 11g Express Edition
+### END INIT INFO
+EOM
+fi
+update-rc.d oracle-xe defaults 80 01
+EOF
+
+chmod 755 /sbin/chkconfig
+
+dpkg -i oracle-xe_11.2.0-2_amd64.deb
+/etc/init.d/oracle-xe configure
+
+rm /sbin/chkconfig
+
+sudo /etc/init.d/oracle-xe stop
+sudo kill -9 `ps -ef | grep oracle | grep -v grep | awk '{print $2}'`
+sudo userdel oracle
+sudo useradd -s /bin/bash -G dba -g dba -m oracle
+sudo passwd oracle
+
+echo '. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh' >> /home/oracle/.bashrc
+
+su - oracle
+sqlplus / as sysdba
+EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE);
+exit
