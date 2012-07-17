@@ -10,6 +10,12 @@
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>   
  </head>
  <body>
+ This is the <b>Demo</b> portlet in View mode.<br/>
+This was created using Liferay IDE 1.5x.<br/>
+Created: Jul.02/2012<br>
+Modified: Jul.16/2012<br>
+Version: 1.0.0.25<br>
+Cool.
    <p>País:</p><select id="originCountrySelectId">
    <option value="-1">Seleccione uno ...</option>
    <option value="1">Colombia</option>
@@ -20,7 +26,7 @@
    <p>Ciudad: </p><select id="originCitySelectId"></select>
    <script>
      $(document).ready(function(){
-    	 setupNewPortletInfo('http://localhost:8080/tccweb');
+    	 setupNewPortletInfo('http://localhost:8180/tccweb');
      });
    </script>   
  </body>

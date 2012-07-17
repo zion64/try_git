@@ -18,4 +18,4 @@
 
 <portlet:defineObjects />
 
-This is the <b>Vaadin Demo</b> portlet in View mode.
+This is the <b>Demo Extended</b> portlet in View mode.
