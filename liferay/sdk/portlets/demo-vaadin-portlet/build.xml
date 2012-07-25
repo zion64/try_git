@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<project name="demo-vaadin-portlet" basedir="." default="deploy">
+	<import file="../build-common-portlet.xml" />
+</project>
