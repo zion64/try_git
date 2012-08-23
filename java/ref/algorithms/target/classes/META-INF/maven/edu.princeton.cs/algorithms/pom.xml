@@ -1,8 +1,0 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>edu.princeton.cs</groupId>
-  <version>1.0.0-RELEASE</version>
-  <name>Algorithms 4th Library</name>
-  <description>Contains the java files for the book. It is packaged with a namespace in it. NOTE: The one found at http://algs4.cs.princeton.edu has everything in root namespace and it is not mavenized.</description>
-  <artifactId>algorithms</artifactId>
-</project>
