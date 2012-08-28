@@ -15,11 +15,11 @@ package edu.princeton.cs.algorithms.stdlib;
 
 public class Copy {
 
-	public static void main(String[] args) {
-		while (!BinaryStdIn.isEmpty()) {
-			char c = BinaryStdIn.readChar();
-			BinaryStdOut.write(c);
-		}
-		BinaryStdOut.flush();
-	}
+    public static void main(String[] args) {
+        while (!BinaryStdIn.isEmpty()) {
+            char c = BinaryStdIn.readChar();
+            BinaryStdOut.write(c);
+        }
+        BinaryStdOut.flush();
+    }
 }

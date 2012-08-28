@@ -20,22 +20,22 @@ import edu.princeton.cs.algorithms.stdlib.StdRandom;
 
 public class DoublingTest {
 
-	@SuppressWarnings("unused")
-	public static double timeTrial(int N) {
-		int MAX = 1000000;
-		int[] a = new int[N];
-		for (int i = 0; i < N; i++) {
-			a[i] = StdRandom.uniform(-MAX, MAX);
-		}
-		Stopwatch s = new Stopwatch();
-		int cnt = ThreeSum.count(a);
-		return s.elapsedTime();
-	}
+    @SuppressWarnings("unused")
+    public static double timeTrial(int N) {
+        int MAX = 1000000;
+        int[] a = new int[N];
+        for (int i = 0; i < N; i++) {
+            a[i] = StdRandom.uniform(-MAX, MAX);
+        }
+        Stopwatch s = new Stopwatch();
+        int cnt = ThreeSum.count(a);
+        return s.elapsedTime();
+    }
 
-	public static void main(String[] args) {
-		for (int N = 250; true; N += N) {
-			double time = timeTrial(N);
-			StdOut.printf("%7d %5.1f\n", N, time);
-		}
-	}
+    public static void main(String[] args) {
+        for (int N = 250; true; N += N) {
+            double time = timeTrial(N);
+            StdOut.printf("%7d %5.1f\n", N, time);
+        }
+    }
 }

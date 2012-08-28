@@ -1,0 +1,10 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.princeton.cs</groupId>
+	<artifactId>algorithms-clients</artifactId>
+	<version>1.0.0-RELEASE</version>
+	<name>Algorithms 4th Clients Library</name>
+	<url>http://algs4.cs.princeton.edu</url>
+	<description>Here are the clients testing Book APIs. Visit http://algs4.cs.princeton.edu</description>
+</project>

@@ -1,3 +1,4 @@
+
 /*************************************************************************
  *  Compilation:  javac Whitelist.java
  *  Execution:    java Whitelist whitelist.txt < data.txt

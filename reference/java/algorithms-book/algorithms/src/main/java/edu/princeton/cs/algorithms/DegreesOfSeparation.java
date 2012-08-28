@@ -55,37 +55,37 @@ import edu.princeton.cs.algorithms.stdlib.StdIn;
 import edu.princeton.cs.algorithms.stdlib.StdOut;
 
 public class DegreesOfSeparation {
-	public static void main(String[] args) {
-		String filename = args[0];
-		String delimiter = args[1];
-		String source = args[2];
+    public static void main(String[] args) {
+        String filename = args[0];
+        String delimiter = args[1];
+        String source = args[2];
 
-		// StdOut.println("Source: " + source);
+        // StdOut.println("Source: " + source);
 
-		SymbolGraph sg = new SymbolGraph(filename, delimiter);
-		Graph G = sg.G();
-		if (!sg.contains(source)) {
-			StdOut.println(source + " not in database.");
-			return;
-		}
+        SymbolGraph sg = new SymbolGraph(filename, delimiter);
+        Graph G = sg.G();
+        if (!sg.contains(source)) {
+            StdOut.println(source + " not in database.");
+            return;
+        }
 
-		int s = sg.index(source);
-		BreadthFirstPaths bfs = new BreadthFirstPaths(G, s);
+        int s = sg.index(source);
+        BreadthFirstPaths bfs = new BreadthFirstPaths(G, s);
 
-		while (!StdIn.isEmpty()) {
-			String sink = StdIn.readLine();
-			if (sg.contains(sink)) {
-				int t = sg.index(sink);
-				if (bfs.hasPathTo(t)) {
-					for (int v : bfs.pathTo(t)) {
-						StdOut.println("   " + sg.name(v));
-					}
-				} else {
-					StdOut.println("Not connected");
-				}
-			} else {
-				StdOut.println("   Not in database.");
-			}
-		}
-	}
+        while (!StdIn.isEmpty()) {
+            String sink = StdIn.readLine();
+            if (sg.contains(sink)) {
+                int t = sg.index(sink);
+                if (bfs.hasPathTo(t)) {
+                    for (int v : bfs.pathTo(t)) {
+                        StdOut.println("   " + sg.name(v));
+                    }
+                } else {
+                    StdOut.println("Not connected");
+                }
+            } else {
+                StdOut.println("   Not in database.");
+            }
+        }
+    }
 }

@@ -24,30 +24,30 @@ import edu.princeton.cs.algorithms.stdlib.StdOut;
 
 public class TopM {
 
-	// Print the top M lines in the input stream.
-	public static void main(String[] args) {
-		int M = Integer.parseInt(args[0]);
-		MinPQ<Transaction> pq = new MinPQ<Transaction>(M + 1);
+    // Print the top M lines in the input stream.
+    public static void main(String[] args) {
+        int M = Integer.parseInt(args[0]);
+        MinPQ<Transaction> pq = new MinPQ<Transaction>(M + 1);
 
-		while (StdIn.hasNextLine()) {
-			// Create an entry from the next line and put on the PQ.
-			String line = StdIn.readLine();
-			Transaction transaction = new Transaction(line);
-			pq.insert(transaction);
+        while (StdIn.hasNextLine()) {
+            // Create an entry from the next line and put on the PQ.
+            String line = StdIn.readLine();
+            Transaction transaction = new Transaction(line);
+            pq.insert(transaction);
 
-			// remove minimum if M+1 entries on the PQ
-			if (pq.size() > M) {
-				pq.delMin();
-			}
-		} // top M entries are on the PQ
+            // remove minimum if M+1 entries on the PQ
+            if (pq.size() > M) {
+                pq.delMin();
+            }
+        } // top M entries are on the PQ
 
-		// print entries on PQ in reverse order
-		Stack<Transaction> stack = new Stack<Transaction>();
-		for (Transaction transaction : pq) {
-			stack.push(transaction);
-		}
-		for (Transaction transaction : stack) {
-			StdOut.println(transaction);
-		}
-	}
+        // print entries on PQ in reverse order
+        Stack<Transaction> stack = new Stack<Transaction>();
+        for (Transaction transaction : pq) {
+            stack.push(transaction);
+        }
+        for (Transaction transaction : stack) {
+            StdOut.println(transaction);
+        }
+    }
 }

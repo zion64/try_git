@@ -6,10 +6,12 @@
  *************************************************************************/
 
 package edu.princeton.cs.algorithms;
+
 import java.util.Arrays;
 
 public class StaticSETofInts {
     private int[] a;
+
     public StaticSETofInts(int[] keys) {
         // defensive copy
         a = new int[keys.length];
@@ -32,9 +34,12 @@ public class StaticSETofInts {
         while (lo <= hi) {
             // Key is in a[lo..hi] or not present.
             int mid = lo + (hi - lo) / 2;
-            if      (key < a[mid]) hi = mid - 1;
-            else if (key > a[mid]) lo = mid + 1;
-            else return mid;
+            if (key < a[mid])
+                hi = mid - 1;
+            else if (key > a[mid])
+                lo = mid + 1;
+            else
+                return mid;
         }
         return -1;
     }

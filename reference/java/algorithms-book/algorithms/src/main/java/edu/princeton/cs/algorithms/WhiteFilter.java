@@ -34,7 +34,7 @@ import edu.princeton.cs.algorithms.stdlib.In;
 import edu.princeton.cs.algorithms.stdlib.StdIn;
 import edu.princeton.cs.algorithms.stdlib.StdOut;
 
-public class WhiteFilter {  
+public class WhiteFilter {
     public static void main(String[] args) {
         SET<String> set = new SET<String>();
 

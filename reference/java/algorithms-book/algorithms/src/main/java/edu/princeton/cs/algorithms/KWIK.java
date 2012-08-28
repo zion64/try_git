@@ -40,27 +40,27 @@ import edu.princeton.cs.algorithms.stdlib.StdOut;
 
 public class KWIK {
 
-	public static void main(String[] args) {
-		In in = new In(args[0]);
-		int context = Integer.parseInt(args[1]);
+    public static void main(String[] args) {
+        In in = new In(args[0]);
+        int context = Integer.parseInt(args[1]);
 
-		// read in text
-		String text = in.readAll().replaceAll("\\s+", " ");
-		int N = text.length();
+        // read in text
+        String text = in.readAll().replaceAll("\\s+", " ");
+        int N = text.length();
 
-		// build suffix array
-		SuffixArray sa = new SuffixArray(text);
+        // build suffix array
+        SuffixArray sa = new SuffixArray(text);
 
-		// find all occurrences of queries and give context
-		while (StdIn.hasNextLine()) {
-			String query = StdIn.readLine();
-			for (int i = sa.rank(query); i < N
-					&& sa.select(i).startsWith(query); i++) {
-				int from = Math.max(0, sa.index(i) - context);
-				int to = Math.min(N - 1, from + query.length() + 2 * context);
-				StdOut.println(text.substring(from, to));
-			}
-			StdOut.println();
-		}
-	}
+        // find all occurrences of queries and give context
+        while (StdIn.hasNextLine()) {
+            String query = StdIn.readLine();
+            for (int i = sa.rank(query); i < N
+                    && sa.select(i).startsWith(query); i++) {
+                int from = Math.max(0, sa.index(i) - context);
+                int to = Math.min(N - 1, from + query.length() + 2 * context);
+                StdOut.println(text.substring(from, to));
+            }
+            StdOut.println();
+        }
+    }
 }

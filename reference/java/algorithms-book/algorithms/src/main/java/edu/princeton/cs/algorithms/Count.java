@@ -34,19 +34,19 @@ import edu.princeton.cs.algorithms.stdlib.StdIn;
 import edu.princeton.cs.algorithms.stdlib.StdOut;
 
 public class Count {
-	public static void main(String[] args) {
-		Alphabet alpha = new Alphabet(args[0]);
-		int R = alpha.R();
-		int[] count = new int[R];
-		String a = StdIn.readAll();
-		int N = a.length();
-		for (int i = 0; i < N; i++) {
-			if (alpha.contains(a.charAt(i))) {
-				count[alpha.toIndex(a.charAt(i))]++;
-			}
-		}
-		for (int c = 0; c < R; c++) {
-			StdOut.println(alpha.toChar(c) + " " + count[c]);
-		}
-	}
+    public static void main(String[] args) {
+        Alphabet alpha = new Alphabet(args[0]);
+        int R = alpha.R();
+        int[] count = new int[R];
+        String a = StdIn.readAll();
+        int N = a.length();
+        for (int i = 0; i < N; i++) {
+            if (alpha.contains(a.charAt(i))) {
+                count[alpha.toIndex(a.charAt(i))]++;
+            }
+        }
+        for (int c = 0; c < R; c++) {
+            StdOut.println(alpha.toChar(c) + " " + count[c]);
+        }
+    }
 }

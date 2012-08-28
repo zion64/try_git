@@ -32,20 +32,20 @@ import edu.princeton.cs.algorithms.stdlib.StdOut;
 
 public class LRS {
 
-	public static void main(String[] args) {
-		String text = StdIn.readAll().replaceAll("\\s+", " ");
-		SuffixArray sa = new SuffixArray(text);
+    public static void main(String[] args) {
+        String text = StdIn.readAll().replaceAll("\\s+", " ");
+        SuffixArray sa = new SuffixArray(text);
 
-		int N = sa.length();
+        int N = sa.length();
 
-		String lrs = "";
-		for (int i = 1; i < N; i++) {
-			int length = sa.lcp(i);
-			if (length > lrs.length()) {
-				lrs = sa.select(i).substring(0, length);
-			}
-		}
+        String lrs = "";
+        for (int i = 1; i < N; i++) {
+            int length = sa.lcp(i);
+            if (length > lrs.length()) {
+                lrs = sa.select(i).substring(0, length);
+            }
+        }
 
-		StdOut.println("'" + lrs + "'");
-	}
+        StdOut.println("'" + lrs + "'");
+    }
 }

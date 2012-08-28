@@ -26,11 +26,10 @@ package edu.princeton.cs.algorithms;
 
 import edu.princeton.cs.algorithms.stdlib.StdOut;
 
-public class Vector { 
+public class Vector {
 
-    private int N;               // length of the vector
-    private double[] data;       // array of vector's components
-
+    private int N; // length of the vector
+    private double[] data; // array of vector's components
 
     // create the zero vector of length n
     public Vector(int n) {
@@ -53,16 +52,12 @@ public class Vector {
     // a constructor that takes a variable number of arguments, such as
     // Vector x = new Vector(1.0, 2.0, 3.0, 4.0);
     // Vector y = new Vector(5.0, 2.0, 4.0, 1.0);
-/*
-    public Vector(double... d) {
-        N = d.length;
-
-        // defensive copy so that client can't alter our copy of data[]
-        data = new double[N];
-        for (int i = 0; i < N; i++)
-            data[i] = d[i];
-    }
-*/
+    /*
+     * public Vector(double... d) { N = d.length;
+     * 
+     * // defensive copy so that client can't alter our copy of data[] data =
+     * new double[N]; for (int i = 0; i < N; i++) data[i] = d[i]; }
+     */
     // return the length of the vector
     public int length() {
         return N;
@@ -70,7 +65,8 @@ public class Vector {
 
     // return the inner product of this Vector a and b
     public double dot(Vector that) {
-        if (this.N != that.N) throw new RuntimeException("Dimensions don't agree");
+        if (this.N != that.N)
+            throw new RuntimeException("Dimensions don't agree");
         double sum = 0.0;
         for (int i = 0; i < N; i++)
             sum = sum + (this.data[i] * that.data[i]);
@@ -84,13 +80,15 @@ public class Vector {
 
     // return the Euclidean distance between this and that
     public double distanceTo(Vector that) {
-        if (this.N != that.N) throw new RuntimeException("Dimensions don't agree");
+        if (this.N != that.N)
+            throw new RuntimeException("Dimensions don't agree");
         return this.minus(that).magnitude();
     }
 
     // return this + that
     public Vector plus(Vector that) {
-        if (this.N != that.N) throw new RuntimeException("Dimensions don't agree");
+        if (this.N != that.N)
+            throw new RuntimeException("Dimensions don't agree");
         Vector c = new Vector(N);
         for (int i = 0; i < N; i++)
             c.data[i] = this.data[i] + that.data[i];
@@ -99,7 +97,8 @@ public class Vector {
 
     // return this + that
     public Vector minus(Vector that) {
-        if (this.N != that.N) throw new RuntimeException("Dimensions don't agree");
+        if (this.N != that.N)
+            throw new RuntimeException("Dimensions don't agree");
         Vector c = new Vector(N);
         for (int i = 0; i < N; i++)
             c.data[i] = this.data[i] - that.data[i];
@@ -119,13 +118,12 @@ public class Vector {
         return c;
     }
 
-
     // return the corresponding unit vector
     public Vector direction() {
-        if (this.magnitude() == 0.0) throw new RuntimeException("Zero-vector has no direction");
+        if (this.magnitude() == 0.0)
+            throw new RuntimeException("Zero-vector has no direction");
         return this.times(1.0 / this.magnitude());
     }
-
 
     // return a string representation of the vector
     public String toString() {
@@ -134,9 +132,6 @@ public class Vector {
             s = s + data[i] + " ";
         return s;
     }
-
-
-
 
     // test client
     public static void main(String[] args) {
