@@ -7,4 +7,11 @@
 	<name>Algorithms 4th Clients Library</name>
 	<url>http://algs4.cs.princeton.edu</url>
 	<description>Here are the clients testing Book APIs. Visit http://algs4.cs.princeton.edu</description>
+	<dependencies>
+		<dependency>
+			<groupId>edu.princeton.cs</groupId>
+			<artifactId>algorithms</artifactId>
+			<version>1.0.0-RELEASE</version>
+		</dependency>
+	</dependencies>
 </project>
