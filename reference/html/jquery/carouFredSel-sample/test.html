@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.carouFredSel-5.6.2-packed.js"></script>
+  </head>
+  <body>
+  <div id="foo">
+	<img src="img/francine.jpg" width="700" height="500" />
+	<img src="img/hayley.jpg"   width="700" height="500" />
+	<img src="img/klaus.jpg"    width="700" height="500" />
+	<img src="img/roger.jpg"    width="700" height="500" />
+	<img src="img/stan.jpg"     width="700" height="500" />
+	<img src="img/steve.jpg"    width="700" height="500" />
+  </div>
+  <script language="javascript">
+     $(document).ready(function() {
+	    $("#foo").carouFredSel({
+	        items     : 1,
+	        direction : "up",
+			auto      : {
+			    pauseDuration : 4000
+			},
+			scroll    : {
+				items			: 1,
+				fx              : "crossfade",
+			}
+	    });
+	 });
+  </script>
+  http://caroufredsel.frebsite.nl
+  </body>
+</html>
+
+
