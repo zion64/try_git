@@ -1,4 +1,18 @@
-package edu.princeton.cs.algorithms.clients;
+/*************************************************************************
+ *  Compilation:  javac Stats.java
+ *  Execution:    java Stats < input.txt
+ *  Dependencies: Bag.java StdIn.java StdOut.java
+ *
+ *  Reads in a sequence of real numbers from standard input and 
+ *  computes their mean and standard deviation.
+ * 
+ *  % java Stats
+ *  100 99 101 120 98 107 109 81 101 90
+ *  Mean:    100.60
+ *  Std dev: 10.51
+ *  
+ *************************************************************************/
+package edu.princeton.cs.algorithms.clients.chapter1.stacksqueues;
 
 import edu.princeton.cs.algorithms.Bag;
 import edu.princeton.cs.algorithms.stdlib.StdIn;
