@@ -1,0 +1,55 @@
+Date:     Dec.26/2012
+Modified: Dec.26/2012
+User:     cortizq
+
+SSH setup
+---------
+The following commands and steps are used to configure two accounts in the same computer to work with Github or
+any other git server that accepts SSH.
+
+NOTE: As a reference URL use the following https://gist.github.com/2351996
+TO use the following commands use the Git command shell (windows) or a terminal in Linux/Unix/Mac OS X.
+
+1. Create the public/private SSH keys.
+$ ssh-keygen -t rsa -C "your_email@youremail.com"
+NOTE: Write down the file where you created the keys into.
+
+2. Add keys to SSH repository.
+$ ssh-add id_rsa_carlosorgit --> and any other you SSH key file you need.
+
+3. Check your saved files.
+$ ssh-add -l
+
+4. Create a SSH config file to be like the following sample (remember, a sample file is located near this file).
+#Default GitHub
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+  
+#Another user
+Host github.com-carlosorgit
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_carlosorgit
+
+5. Now change the remote origin in git config files to point to the required SSH identity file.
+Here let's tuppose we want to use the id_rsa_carlosorgit then your config file must be set as 
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	url = git@github.com-carlosorgit:CSoftZ/try_git.git 
+as an example, here you copy the SSH url given at the github web site, e.g.,
+git@github.com:CSoftZ/try_git.git and change the github.com (default host as named in the SSH config file) to
+github.com-carlosorgit and not GIT will now to which credentials it will communicate to server or the other end point.
+
+6. Create batch files or shell command files to put the user.name and user.email for the global environment settings
+for git to properly mark your commit accordingly.
+Here follows and example.
+
+exec git config --global user.name "Carlos Adolfo Ortiz Quiros"
+exec git config --global user.email carlosaortiz@yahoo.com 
+
+and execute accordingly in order for your commits to be fully referenced in the social part at github.com
+
+Lastly there is a configuration file for SSH keys in this folder for you to check out
+the process.
