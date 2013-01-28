@@ -1,6 +1,55 @@
 Date:     Dec.26/2012
-Modified: Dec.26/2012
-User:     cortizq
+Modified: Jan.28/2012
+User:     cortizqgithub
+
+NOTE: A good tutorial named as Git immersion (http://gitimmersion.com) you can follow so you can get full 
+advantage of it.
+
+NOTE: Here you see the $, this indicates commands you must type in a terminal window, besides this is a Unix/OS X/Linux 
+command prompt (for windows users use the Git bash terminal window provided when you installed the git system) as a means
+of standardizing tasks.
+
+Some setup tips follow. And the snippets directory holds some other tips for git usage.
+
+GIT Configuration basics
+------------------------
+1. Setup Name and Email
+$ git config --global user.name "Your Name"
+$ git config --global user.email "your_email@whatever.com"
+
+2. Setup Line Ending Preferences (USE carefully, as this forces all files are usable in that OS).
+
+Unix/Linux/OS X users
+$ git config --global core.autocrlf input
+$ git config --global core.safecrlf true
+
+Windows Users
+$ git config --global core.autocrlf true
+$ git config --global core.safecrlf true
+
+3. Common Aliases
+By using aliases you can type fewer.
+This is how it works.
+Suppose you type '$ git checkout master' but you want to type less, then use an alias for checkout
+and then you type '$git co master and you are done'.
+To create these aliases, add the following to the .gitconfig file in your $HOME directory.
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  
+To check that this works as expected type the following>
+$ git config --global -l
+You should see the following text
+user.name=Your name
+user.email=youremail@whatever.com
+alias.co=checkout
+alias.ci=commit
+alias.st=status
 
 SSH setup
 ---------
@@ -32,13 +81,20 @@ Host github.com-carlosorgit
   HostName github.com
   User git
   IdentityFile ~/.ssh/id_rsa_carlosorgit
+  
+NOTE: Read along for a usage of this step.
 
 5. Now change the remote origin in git config files to point to the required SSH identity file.
-Here let's tuppose we want to use the id_rsa_carlosorgit then your config file must be set as 
+Here let's suppose we want to use the id_rsa_carlosorgit then your config file must be set as 
 [remote "origin"]
 	fetch = +refs/heads/*:refs/remotes/origin/*
 	url = git@github.com-carlosorgit:CSoftZ/try_git.git 
-as an example, here you copy the SSH url given at the github web site, e.g.,
+
+Notice here that you are saying github.com-carlosorgit, thus SSH reads the ~/.ssh/config file and notices that the 
+RSA files are named as id_rsa_ carlosorgit (or the one you have typed them into), thus, here, it is a good practice
+to name the Host name as a suffix in the RSA file, i.e., Host=github.com-carlosorgit, RSA-File=id_rsa_carlosorgit.
+
+As an example, here you copy the SSH url given at the github web site, e.g.,
 git@github.com:CSoftZ/try_git.git and change the github.com (default host as named in the SSH config file) to
 github.com-carlosorgit and not GIT will now to which credentials it will communicate to server or the other end point.
 
