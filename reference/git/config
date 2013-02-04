@@ -9,4 +9,16 @@ Host github.com-carlosorgit
   HostName github.com
   User git
   IdentityFile ~/.ssh/id_rsa_carlosorgit
+
+#Default Bitbucket
+Host bitbucket.org
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/id_rsa_cortizqbitbucket
+  
+#Another User
+Host bitbucket.org-cortizqbowl
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/id_rsa_cortizqbowl
   
