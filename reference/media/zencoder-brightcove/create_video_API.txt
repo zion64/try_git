@@ -1,0 +1,69 @@
+curl -k --data 'json=
+
+{
+    "method": "create_video",
+    "params": {"token": "nJh98sEWszGIn356NpIjz79OEdl_G8D9XJmfnfJNpO-PWpa2dGSx3w..",
+    "video": {
+        "name": "HLS Live",
+        "shortDescription": "HLS Live Description",
+        "renditions": [
+            {
+                "referenceId": "HLS_LIVE_300",
+                "remoteUrl": "http://brightcove03-f.akamaihd.net/HLS_LIVE_01_300@96411",
+                "videoDuration": -1,
+                "size": 0,
+                "videoCodec": "ON2",
+                "encoding-rate": "300000",
+                "frame-width": "480",
+                "frame-height": "270",
+                "controllerType": "AKAMAI_HD_LIVE"
+            },
+            {
+                "referenceId": "HLS_LIVE_650",
+                "remoteUrl": "http://brightcove03-f.akamaihd.net/HLS_LIVE_01_650@96411",
+                "videoDuration": -1,
+                "size": 0,
+                "videoCodec": "ON2",
+                "encoding-rate": "650000",
+                "frame-width": "640",
+                "frame-height": "360",
+                "controllerType": "AKAMAI_HD_LIVE"
+            },
+            {
+                "referenceId": "HLS_LIVE_900",
+                "remoteUrl": "http://brightcove03-f.akamaihd.net/HLS_LIVE_01_900@96411",
+                "videoDuration": -1,
+                "size": 0,
+                "videoCodec": "ON2",
+                "encoding-rate": "900000",
+                "frame-width": "640",
+                "frame-height": "360",
+                "controllerType": "AKAMAI_HD_LIVE"
+            },
+            {
+                "referenceId": "HLS_LIVE_1200",
+                "remoteUrl": "http://brightcove03-f.akamaihd.net/HLS_LIVE_01_1200@96411",
+                "videoDuration": -1,
+                "size": 0,
+                "videoCodec": "ON2",
+                "encoding-rate": "1200000",
+                "frame-width": "1280",
+                "frame-height": "720",
+                "controllerType": "AKAMAI_HD_LIVE"
+            },
+            {
+                "referenceId": "HLS_LIVE_2000",
+                "remoteUrl": "http://brightcove03-f.akamaihd.net/HLS_LIVE_01_2000@96411",
+                "videoDuration": -1,
+                "size": 0,
+                "videoCodec": "ON2",
+                "encoding-rate": "2000000",
+                "frame-width": "1280",
+                "frame-height": "720",
+                "controllerType": "AKAMAI_HD_LIVE"
+            }
+        ]
+    }}
+}
+' \
+     https://api.brightcove.com/services/post

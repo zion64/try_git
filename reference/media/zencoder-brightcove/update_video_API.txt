@@ -1,0 +1,22 @@
+curl -k --data 'json=
+
+{
+"method":"update_video",
+  "params":
+   {"token":"nJh98sEWszGIn356NpIjz79OEdl_G8D9XJmfnfJNpO-PWpa2dGSx3w..",
+    "video":
+     {"id":'2144783427001',
+      "videoFullLength":
+       {"referenceId":"HLS_LIVEios",
+        "remoteUrl":"http://bcoveliveios-i.akamaihd.net/hls/live/206924/1313459589001/index.m3u8",
+        "videoDuration":-1,
+        "size":0,
+        "videoCodec":"H264",
+        "videoContainer":"M2TS",
+        "controllerType":"AKAMAI_HD_LIVE"
+      }
+    }
+  }
+}
+' \
+     http://api.brightcove.com/services/post

@@ -1,0 +1,7 @@
+Date:     Feb.08/2013
+Modified: Feb.08/2013
+These files are created following this document 
+(http://support.brightcove.com/en/video-cloud/docs/quick-start-creating-simple-live-stream-using-zencoder-and-video-cloud)
+which describes the rationale about
+creating live streaming for iOS or Android or Windows 8RT (IE9 for Windows 8RT won't support the Flash player) that don't
+support the Flash player format. The original files are stored in the ZIP file herein.
