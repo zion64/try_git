@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Shared Using Dialog Feed</title>
+      <meta property="og:title" content="Shared Using Dialog Feed" />
+      <meta property="og:description" content="The usage of Dialog Feed is remarkable." />
+      <meta property="og:image" content="http://www.elcolombiano.com/BancoMedios/FBShare/revolucion-mexicana1.jpg" />
+      <meta property="og:image" content="http://www.elcolombiano.com/BancoMedios/FBShare/14747000_H.jpg" />
+      <meta property="og:image" content="http://www.elcolombiano.com/BancoMedios/FBShare/14794642_H.jpg" />
+      <meta property="og:url" content="http://www.elcolombiano.com/BancoMedios/FBShare/fbshare.html" />
+      <style>
+         .reduce { width: 100px; height:10px; }
+         .social_net {width: 1000px; height:10px;}
+      </style>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4dc8b73058bd6ab4"></script>		
+	  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>	  
+	  <link rel="stylesheet" type="text/css" href="./css/fb/fb.css?id=20130220"/>
+   </head>
+   <body>   
+      <div class="addthis_toolbox addthis_default_style social_net" addthis:url="http://www.elcolombiano.com/BancoMedios/FBShare/fbshare.html" addthis:description:"I asked myself if this description is to appear">	           
+	  <div id="fbShareButton" class="fbShareBox">
+<a id="fbShareLink" href=""><img border="0" class="fbShareBoxImg" src="http://www.elcolombiano.com/bancomedios/fbshare/images/fb/fbshare.png"></img></a>
+<span class="fbShareBoxCount"><i></i><u></u>&nbsp;<span id="fbShareCountData"></span>&nbsp;</span>
+</div>	  
+	  
+	  <a class="addthis_button_facebook_share reduce" fb:share:layout="box_count"></a>
+	  
+         <a class="addthis_button_tweet" tw:via="El Colombiano"></a>
+         <a class="addthis_button_google_plusone" g:plusone:size="medium" g:plusone:annotation="bubble"></a>
+         <a class="addthis_counter addthis_pill_style"></a>
+      </div>
+	  <br><br>
+
+      <img src="revolucion-mexicana1.jpg" />
+      <img src="14796606_H.jpg" />
+      <img src="14747000_H.jpg" />
+      <img src="14794642_H.jpg" />
+	  <img src="cavaclub.jpg" />
+	  <img src="colos.jpg" />
+	  <img src="btn-mas.jpg" />
+	  <img src="casuelitas2.jpg" />
+	  <img src="360-bistro1.jpg" />
+	  
+	  
+	  
+   </body>
+<script>
+    $( document ).ready(function() {	    
+	    var fbURL = 'http://graph.facebook.com/?ids=';
+		$.support.cors = true;
+		urlIds = location.href;
+		urlOne = location.href;	
+		fbURL += urlIds;		
+	    $.ajax({
+		    url: fbURL,
+			crossDomain: true,
+            dataType: 'json',
+			error: function(aj, desc, errorThrown) {
+			    alert("Error: [" + desc + "]["+errorThrown +"]" );
+			},
+            success: function(data) {			
+				var s = "";
+				var shares = "0";
+			    $.each(data, function(key, value) {				   
+				   if (key == urlOne) {
+				      if (value.shares != null) {
+				         shares = value.shares;
+					  }
+				   }
+			    });				
+				$("#fbShareCountData").append(shares);
+            },
+			statusCode: {
+               404: function() {
+                  alert("page not found");
+               }
+            }
+        });
+		$("#fbShareLink").click(function(){
+		   var fbFeed = 'https://www.facebook.com/dialog/feed?';
+		   fbFeed += 'redirect_uri=http://www.elcolombiano.com/BancoMedios/FBShare/autoclose.html&';
+		   fbFeed += 'link=' + location.href;
+		   fbFeed += '&api_key=615448291814290&app_id=615448291814290&locale=en_US&sdk=joey&display=popup';
+		   window.open(fbFeed, 'Share', 'width=740,height=500,scrollbars=yes,resizable=yes');
+		   return false;
+		});
+	});
+</script>
+   
+</html>

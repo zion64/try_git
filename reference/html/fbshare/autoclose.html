@@ -1,0 +1,19 @@
+<script type="text/javascript" >
+    (function() {
+        function getParameterByName(name) {
+            var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+
+        if (getParameterByName('post_id') != null) {
+            // Share was posted successfully
+            
+        } else {
+            // Share was unsuccessfull
+            
+        }
+
+        window.open('','_self','');
+        window.close();
+    })()
+</script>
