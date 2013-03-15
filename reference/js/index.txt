@@ -1,0 +1,11 @@
+Date:          Mar.15/2013
+Last Modified: Mar.15/2013
+
+The contents in this file is used to guide you to know what's in here. NOTE: a combination of javascript and jQuery tips are documented.
+
+fbshare.js: contains functions to aid in implementing a Facebook Share button. Notice a jQuery onReady event at end of file.
+html/fbshare.html: an example of usage for fbshare.js
+windowload.js: A snippet to remind me about the fact when to execute something in jquery when all page has been loaded.
+               Difference: $(document).ready() is an event that fires when DOM is ready (not necessarily all scripts have executed and images have 
+			   loaded).
+			   $(window).load is an event that fires only when all images have loaded and scripts have been run.

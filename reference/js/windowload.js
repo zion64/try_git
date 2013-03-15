@@ -1,0 +1,1 @@
+$( window ).load( function() {$('#epl_layer_div').removeAttr('style');});

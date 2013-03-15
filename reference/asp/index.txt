@@ -1,0 +1,7 @@
+Date:          Mar.15/2013
+Last Modified: Mar.15/2013
+
+The contents in this file is used to guide you to know what's in here. NOTE: ASP classic scripting.
+
+utils.asp: Collection of useful routines.
+dbtools.asp: Convenient routines for Database manipulation.
