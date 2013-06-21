@@ -1,1 +1,6 @@
+try_git README
+--------------
+
 This is the Hello World example from git Tutorial.
+
+By way of using Markdown, it is a text file that it is later converted to markdown.
