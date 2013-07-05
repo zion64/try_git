@@ -1,0 +1,58 @@
+File:     steps.txt
+Author:   Carlos Adolfo Ortiz Q
+Date:     Jul.05/2013
+Modified: Jul.05/2013
+
+Since Version 6.1.x of Liferay, they have official support for Maven.
+In order to use this Maven support you must read the User's Guide about it.
+You can find this chapter guide here: http://www.liferay.com/documentation/liferay-portal/6.1/development/-/ai/developing-plugins-using-maven
+
+Here we are going to use the Maven Support but using the local repository.
+To install the Liferay support Maven files you must have setup Apache Maven and Ant (follow their documentation).
+
+Here are the steps involved in setting up Maven Support for Liferay.
+1. Install and configure Ant
+2. Install and configure Maven
+3. You can compile Maven Support from Liferay's source or you can download a binary distribution.
+   For the sake of this steps we will be using the V6.1.1 Liferay Version.
+   Go to http://sourceforge.net/projects/lportal/files/Liferay%20Portal/6.1.1%20GA2/ and look for the link
+   liferay-portal-maven-6.1.1-ce-ga2-20120731132656558
+   or use the following very same link
+   http://sourceforge.net/projects/lportal/files/Liferay%20Portal/6.1.1%20GA2/liferay-portal-maven-6.1.1-ce-ga2-20120731132656558.zip/download
+4. Unzip the contents and in terminal and go to the folder where you uncompressed those files.
+5. type the command 'ant install', this copies all JAR and required files in Maven Local repository.
+6. Now you can use Liferay Maven Support.
+
+Now use it:
+In a terminal window type any of the following commands as needed (use any directory to locate files, but it is 
+recommended you first create a folder to contain all of your maven artifacts, let's say it is named
+sample-parent-project and go inside it):
+
+Inside 'sample-parent-project', type or copy this reference files 'pom.xml'
+and edit accordingly the following properties:
+    <properties>
+        <liferay.auto.deploy.dir>d:\java\liferay-portal-6.1.1-ce-ga2\deploy</liferay.auto.deploy.dir>
+        <liferay.version>6.1.1</liferay.version>
+    </properties>
+Setting 'liferay.auto.deploy.dir' with the folder name for your Liferay installation directory.
+And liferay.version with the named version you intend to target for your Liferay Portal installation.
+
+To create a Porlet template.
+1. mvn archetype:generate (this will display a list of all registered archetypes to use).
+   You can filter information by typing: 'liferay:porlet' for portlet archetypes or 'liferay' for all liferay artifacts.
+   The archetype will ask you for the following settings (read Maven documentation):
+   groupId: com.liferay.sample
+   artifactId: sample-portlet (it is advisable to name the porlet by using the convention [name-porlet].
+   version: 1.0-SNAPSHOT or name it as needed.
+   package: com.liferay.sample
+2. mvn package --> To compile and create the JAR, WAR or anything the Application Server artifact requires.
+3. mvn liferay:deploy --> to copy the JAR, WAR or anything the Application Server artifact requires.
+
+To create a Theme, filter with 'liferay:theme'.
+To create a Layout, filter with 'liferay:layout'.
+
+NOTE: The directories for some artifacts where created as described above.
+
+Enjoy!
+
+
