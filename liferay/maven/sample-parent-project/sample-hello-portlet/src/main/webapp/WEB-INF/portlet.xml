@@ -2,9 +2,9 @@
 
 <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
 	<portlet>
-		<portlet-name>sample-hello-portlet</portlet-name>
-		<display-name>sample-hello-portlet</display-name>
-		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<portlet-name>samplehello</portlet-name>
+		<display-name>samplehello</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
 		<init-param>
 			<name>view-jsp</name>
 			<value>/view.jsp</value>
@@ -14,9 +14,9 @@
 			<mime-type>text/html</mime-type>
 		</supports>
 		<portlet-info>
-			<title>sample-hello-portlet</title>
-			<short-title>sample-hello-portlet</short-title>
-			<keywords>sample-hello-portlet</keywords>
+			<title>samplehello</title>
+			<short-title>samplehello</short-title>
+			<keywords>samplehello</keywords>
 		</portlet-info>
 		<security-role-ref>
 			<role-name>administrator</role-name>
