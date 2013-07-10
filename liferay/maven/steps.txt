@@ -37,7 +37,7 @@ and edit accordingly the following properties:
 Setting 'liferay.auto.deploy.dir' with the folder name for your Liferay installation directory.
 And liferay.version with the named version you intend to target for your Liferay Portal installation.
 
-To create a Porlet template.
+To create a Portlet template.
 1. mvn archetype:generate (this will display a list of all registered archetypes to use).
    You can filter information by typing: 'liferay:porlet' for portlet archetypes or 'liferay' for all liferay artifacts.
    The archetype will ask you for the following settings (read Maven documentation):
@@ -51,7 +51,7 @@ To create a Porlet template.
 To create a Theme, filter with 'liferay:theme'.
 To create a Layout, filter with 'liferay:layout'.
 
-NOTE: The directories for some artifacts where created as described above.
+NOTE: The directories for some artifacts were created as described above.
 
 Enjoy!
 
