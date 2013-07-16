@@ -1,7 +1,7 @@
 File:     steps.txt
 Author:   Carlos Adolfo Ortiz Q
 Date:     Jul.05/2013
-Modified: Jul.05/2013
+Modified: Jul.16/2013
 
 Since Version 6.1.x of Liferay, they have official support for Maven.
 In order to use this Maven support you must read the User's Guide about it.
@@ -35,7 +35,7 @@ and edit accordingly the following properties:
         <liferay.version>6.1.1</liferay.version>
     </properties>
 Setting 'liferay.auto.deploy.dir' with the folder name for your Liferay installation directory.
-And liferay.version with the named version you intend to target for your Liferay Portal installation.
+And 'liferay.version' with the named version you intend to target for your Liferay Portal installation.
 
 To create a Portlet template.
 1. mvn archetype:generate (this will display a list of all registered archetypes to use).
@@ -45,13 +45,18 @@ To create a Portlet template.
    artifactId: sample-portlet (it is advisable to name the porlet by using the convention [name-porlet].
    version: 1.0-SNAPSHOT or name it as needed.
    package: com.liferay.sample
-2. mvn package --> To compile and create the JAR, WAR or anything the Application Server artifact requires.
-3. mvn liferay:deploy --> to copy the JAR, WAR or anything the Application Server artifact requires.
+2. mvn clean --> Execute this step as a normal basis in order to always guarantee up to date contents in deployment.
+3. mvn package --> To compile and create the JAR, WAR or anything the Application Server artifact requires.
+4. mvn liferay:deploy --> to copy the JAR, WAR or anything the Application Server artifact requires.
 
 To create a Theme, filter with 'liferay:theme'.
 To create a Layout, filter with 'liferay:layout'.
 
 NOTE: The directories for some artifacts were created as described above.
+
+Now, the folder structure created is a maven compatible, and if you want to work with it inside
+Eclipse then you must type 'mvn eclipse:eclipse', and inside Eclipse with tne Maven support plugin (included in Eclipse Kepler V4.3),
+you can operate it mavenized.
 
 Enjoy!
 
