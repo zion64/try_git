@@ -1,7 +1,11 @@
 File:     history.txt
 Author:   Carlos Adolfo Ortiz Q
 Date:     Feb.21/2013
-Modified: Jul.05/2013
+Modified: Jul.16/2013
+
+Jul.16/2013 V1.0.0.7 Tag: V1.0.0.7-Jul.16/2013
+- Added 'mvnspring-parent-project' with multiple Spring MVC Portlets in one WAR.
+- Modified steps.txt file.
 
 Jul.05/2013 V1.0.0.6 Tag: V1.0.0.6-Jul.05/2013
 - Added Liferay Maven sample files based on the User's guide
