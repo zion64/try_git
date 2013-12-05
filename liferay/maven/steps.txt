@@ -1,25 +1,29 @@
 File:     steps.txt
 Author:   Carlos Adolfo Ortiz Q
 Date:     Jul.05/2013
-Modified: Jul.16/2013
+Modified: Dec.04/2013
 
 Since Version 6.1.x of Liferay, they have official support for Maven.
 In order to use this Maven support you must read the User's Guide about it.
-You can find this chapter guide here: http://www.liferay.com/documentation/liferay-portal/6.1/development/-/ai/developing-plugins-using-maven
+You can find this chapter guide here: 
+For version 6.1 http://www.liferay.com/documentation/liferay-portal/6.1/development/-/ai/developing-plugins-using-maven
+For version 6.2 https://www.liferay.com/documentation/liferay-portal/6.2/development/-/ai/developing-plugins-using-maven-liferay-portal-6-2-dev-guide-02-en
 
-Here we are going to use the Maven Support but using the local repository.
-To install the Liferay support Maven files you must have setup Apache Maven and Ant (follow their documentation).
+In this document we are going to use the Maven Support but using the local repository (that is, installing the artifacts to the user's local directory
+instead of through the server, by the way, if you connect to the server you finally get the artifacts to the local repository, that
+is in fact maven support).
+To install the Liferay support Maven files you must have setup Apache Maven and Ant (follow documentation for each of them at their respective sites).
 
 Here are the steps involved in setting up Maven Support for Liferay.
-1. Install and configure Ant
-2. Install and configure Maven
+1. Install and configure Ant (http://ant.apache.org/)
+2. Install and configure Maven (http://maven.apache.org/)
 3. You can compile Maven Support from Liferay's source or you can download a binary distribution.
-   For the sake of this steps we will be using the V6.1.1 Liferay Version.
+   For the sake of these steps we will be using the V6.1.1 Liferay Version (or later, pointing to the required version).
    Go to http://sourceforge.net/projects/lportal/files/Liferay%20Portal/6.1.1%20GA2/ and look for the link
    liferay-portal-maven-6.1.1-ce-ga2-20120731132656558
    or use the following very same link
    http://sourceforge.net/projects/lportal/files/Liferay%20Portal/6.1.1%20GA2/liferay-portal-maven-6.1.1-ce-ga2-20120731132656558.zip/download
-4. Unzip the contents and in terminal and go to the folder where you uncompressed those files.
+4. Unzip the contents in terminal and go to the folder where you uncompressed those files.
 5. type the command 'ant install', this copies all JAR and required files in Maven Local repository.
 6. Now you can use Liferay Maven Support.
 
@@ -35,9 +39,11 @@ and edit accordingly the following properties:
         <liferay.version>6.1.1</liferay.version>
     </properties>
 Setting 'liferay.auto.deploy.dir' with the folder name for your Liferay installation directory.
+NOTE: This directory must exist, here it is for Liferay V6.1.1, but change if for example it is Liferay V6.2.
 And 'liferay.version' with the named version you intend to target for your Liferay Portal installation.
 
 To create a Portlet template.
+-----------------------------
 1. mvn archetype:generate (this will display a list of all registered archetypes to use).
    You can filter information by typing: 'liferay:porlet' for portlet archetypes or 'liferay' for all liferay artifacts.
    The archetype will ask you for the following settings (read Maven documentation):
@@ -48,6 +54,8 @@ To create a Portlet template.
 2. mvn clean --> Execute this step as a normal basis in order to always guarantee up to date contents in deployment.
 3. mvn package --> To compile and create the JAR, WAR or anything the Application Server artifact requires.
 4. mvn liferay:deploy --> to copy the JAR, WAR or anything the Application Server artifact requires.
+   NOTE: For command 'mvn liferay:deploy' to actually work, you must be inside the plugin directory, example, 
+   'sample-portlet', not in the parent folder for any of the plugins/modules it contains.
 
 To create a Theme, filter with 'liferay:theme'.
 To create a Layout, filter with 'liferay:layout'.
@@ -58,6 +66,151 @@ Now, the folder structure created is a maven compatible, and if you want to work
 Eclipse then you must type 'mvn eclipse:eclipse', and inside Eclipse with tne Maven support plugin (included in Eclipse Kepler V4.3),
 you can operate it mavenized.
 
+NOTE:
+You may encounter problems. This section is one to guide you through some of them.
+1.) Make sure your modified POM.XML (from earlier developments have the 
+    <groupId>com.liferay.maven.plugins</groupId>
+      <artifactId>liferay-maven-plugin</artifactId>
+      <version>${liferay.version}</version>
+      ...
+    In parent pom you should have this value already set.
+2.) If you have trouble using the liferay maven plugin version
+    Go to http://search.maven.org and type "liferay-maven-plugin" in the search box (without the double-quotes).
+    And grab the latest version.
+
 Enjoy!
+
+After this line we put the very same POM.XML as used in the V6.2 documentation.
+-------
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.liferay.sample</groupId>
+    <artifactId>sample-parent-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>sample-parent-project</name>
+    <url>http://www.liferay.com</url>
+
+    <properties>
+       <liferay.app.server.deploy.dir>
+         ${liferay.app.server.deploy.dir}
+       </liferay.app.server.deploy.dir>
+
+       <liferay.app.server.lib.global.dir>
+         ${liferay.app.server.lib.global.dir}
+       </liferay.app.server.lib.global.dir>
+
+       <liferay.app.server.portal.dir>
+         ${liferay.app.server.portal.dir}
+       </liferay.app.server.portal.dir>
+
+       <liferay.auto.deploy.dir>
+         ${liferay.auto.deploy.dir}
+       </liferay.auto.deploy.dir>
+
+       <liferay.version>
+         ${liferay.version}
+       </liferay.version>
+
+       <liferay.maven.plugin.version>
+         ${liferay.maven.plugin.version}
+       </liferay.maven.plugin.version>
+    </properties>
+
+    <dependencies>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>portal-client</artifactId>
+         <version>${liferay.version}</version>
+       </dependency>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>portal-impl</artifactId>
+         <version>${liferay.version}</version>
+         <scope>provided</scope>
+       </dependency>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>portal-pacl</artifactId>
+         <version>${liferay.version}</version>
+         <scope>provided</scope>
+       </dependency>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>portal-service</artifactId>
+         <version>${liferay.version}</version>
+         <scope>provided</scope>
+       </dependency>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>portal-web</artifactId>
+         <version>${liferay.version}</version>
+         <type>war</type>
+         <scope>provided</scope>
+       </dependency>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>util-bridges</artifactId>
+         <version>${liferay.version}</version>
+       </dependency>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>util-java</artifactId>
+         <version>${liferay.version}</version>
+       </dependency>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>util-slf4j</artifactId>
+         <version>${liferay.version}</version>
+       </dependency>
+       <dependency>
+         <groupId>com.liferay.portal</groupId>
+         <artifactId>util-taglib</artifactId>
+         <version>${liferay.version}</version>
+       </dependency>
+    </dependencies>
+
+</project>
+
+Replace each Liferay property value (e.g., replace ${liferay.app.server.deploy.dir} and other dereferenced liferay.* properties) with the appropriate value based on your Liferay environment. We’ve described these key properties here:
+
+- liferay.app.server.deploy.dir: Your app server’s deployment directory.
+- liferay.app.server.lib.global.dir: Your app server’s global library directory.
+- liferay.app.server.portal.dir: The path to Liferay’s deployment directory on the app server.
+- liferay.auto.deploy.dir: The path of your Liferay bundle’s hot-deploy directory deploy/. By specifying your Liferay instance’s deploy directory in the POM, you’re telling Maven exactly where to deploy your plugin artifacts.
+- liferay.maven.plugin.version: The version of the Liferay Maven Plugin you are using.
+- liferay.version: The version of Liferay you are using.
+
+Here’s an example where we’ve specified these properties for Liferay bundled with Apache Tomcat in a directory C:\liferay-portal-6.2:
+
+<properties>
+    <liferay.app.server.deploy.dir>
+       C:\liferay-portal-6.2\tomcat-7.0.42\webapps
+    </liferay.app.server.deploy.dir>
+
+    <liferay.app.server.lib.global.dir>
+       C:\liferay-portal-6.2\tomcat-7.0.42\lib\ext
+    </liferay.app.server.lib.global.dir>
+
+    <liferay.app.server.portal.dir>
+       C:\liferay-portal-6.2\tomcat-7.0.42\webapps\root
+    </liferay.app.server.portal.dir>
+
+    <liferay.auto.deploy.dir>
+       C:\liferay-portal-6.2\deploy
+    </liferay.auto.deploy.dir>
+
+    <liferay.maven.plugin.version>
+       6.2.0-RC5
+    </liferay.maven.plugin.version>
+
+    <liferay.version>
+       6.2.0-GA1
+    </liferay.version>
+</properties>
+
 
 
