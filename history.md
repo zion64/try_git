@@ -1,7 +1,10 @@
 File:     history.txt
 Author:   Carlos Adolfo Ortiz Q
 Date:     Feb.21/2013
-Modified: Dec.05/2013
+Modified: Dec.11/2013
+
+Dec.11/2013 V1.0.2.5 Tag: V1.0.2.5-Dec.11/2013
+- Adds a maven project that compiles java/groovy files using the Eclipse Maven Groovy Plugin
 
 Dec.05/2013 V1.0.1.0 Tag: V1.0.1.0-Dec.05/2013
 - Adds 'mvnspring-parent-project' with multiple Spring MVC Portlets in one WAR using Liferay Portal V6.2.0.
