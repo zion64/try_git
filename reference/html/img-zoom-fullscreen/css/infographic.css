@@ -1,0 +1,1 @@
+.imgBig {   display: none;   }.imgSmall {   cursor: pointer;}.zoomButtons {  position:fixed; top:100px; right:200px; width:100px;  float: left;  z-index: 3000000;  background-color:red;}#zoomIn, #zoomOut, #zoomClose {  cursor: pointer;}
