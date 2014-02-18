@@ -1,7 +1,15 @@
-File:     history.txt
+File:     history.md
 Author:   Carlos Adolfo Ortiz Q
 Date:     Feb.21/2013
-Modified: Dec.11/2013
+Modified: Feb.18/2013
+
+Feb.18/2014 V1.0.3.5 Tag: V1.0.3.5-Feb.18/2014
+- Adds new reference material in the CS category.
+- New tag version added.
+
+Feb.17/2014 V1.0.3.0 Tag: V1.0.3.0-Feb.17/2014
+- Adds a revision to some files. 
+- New prerelease tag LV1.0.3.0-Feb.17/2014
 
 Dec.11/2013 V1.0.2.5 Tag: V1.0.2.5-Dec.11/2013
 - Adds a maven project that compiles java/groovy files using the Eclipse Maven Groovy Plugin
