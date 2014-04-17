@@ -11,32 +11,16 @@
     <url>http://www.liferay.com</url>
 
     <properties>       
-       <liferay.app.server.deploy.dir>
-         d:\java\liferay\liferay-portal-6.2.0-ce-ga1\tomcat-7.0.42\webapps
-       </liferay.app.server.deploy.dir>
 
-       <liferay.app.server.lib.global.dir>
-         d:\java\liferay\liferay-portal-6.2.0-ce-ga1\tomcat-7.0.42\lib\ext
-       </liferay.app.server.lib.global.dir>
 
-       <liferay.app.server.portal.dir>
-         d:\java\liferay\liferay-portal-6.2.0-ce-ga1\tomcat-7.0.42\webapps\root
-       </liferay.app.server.portal.dir>
 
-       <liferay.auto.deploy.dir>
-         d:\java\liferay\liferay-portal-6.2.0-ce-ga1\deploy
-       </liferay.auto.deploy.dir>
 
-       <liferay.maven.plugin.version>
-         6.2.0-RC5
-       </liferay.maven.plugin.version>
+       <liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>
 
-       <liferay.version>
-         6.2.0-GA1
-       </liferay.version>
+       <liferay.version>6.2.1</liferay.version>
        
-       <org.springframework.version>3.2.5.RELEASE</org.springframework.version>
-       <org.slf4j-version>1.5.10</org.slf4j-version>
+       <org.springframework.version>4.0.3.RELEASE</org.springframework.version>
+       <org.slf4j-version>1.7.7</org.slf4j-version>
 
     </properties>
 

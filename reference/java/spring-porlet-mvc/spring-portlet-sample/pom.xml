@@ -14,13 +14,13 @@
 		<servlet-api.version>2.4</servlet-api.version>
 		<portlet-api.version>1.0</portlet-api.version>
 		<jstl.version>1.1.2</jstl.version>
-		<spring.version>2.5.3</spring.version>
+		<spring.version>4.0.3.RELEASE</spring.version>
 		<commons-logging.version>1.1</commons-logging.version>
 		<commons-io.version>1.3</commons-io.version>
 		<commons-fileupload.version>1.2</commons-fileupload.version>
 		<log4j.version>1.2.14</log4j.version>
 		<junit.version>3.8.1</junit.version>
-		<pluto.version>1.1.5</pluto.version>
+		<pluto.version>1.1.7</pluto.version>
 	</properties>
 
 	<dependencies>
@@ -53,11 +53,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -143,19 +138,19 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.pluto</groupId>
-				<artifactId>maven-pluto-plugin</artifactId>
-				<version>${pluto.version}</version>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>assemble</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.pluto</groupId> -->
+<!-- 				<artifactId>maven-pluto-plugin</artifactId> -->
+<!-- 				<version>${pluto.version}</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<phase>generate-resources</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>assemble</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 
 			<plugin>
 				<groupId>org.codehaus.cargo</groupId>
